@@ -9,6 +9,7 @@ import { convertDurationToTimeString } from '../utils/convertDurationToTimeStrin
 import styles from './home.module.scss';
 import { useContext } from 'react';
 import { PlayerContext } from '../contexts/PlayerContext';
+import { usePlayer } from '../hooks/usePlayer';
 
 type Episode = {
   id: string;
@@ -27,7 +28,7 @@ type HomeProps = {
 }
 
 export default function Home({ latestEpisodes, allEpisodes }: HomeProps) {
-  const { play } = useContext(PlayerContext)
+  const { play } = usePlayer()
 
   return (
     <div className={styles.homepage}>
